@@ -1,0 +1,26 @@
+# Get jruby
+
+mvn install
+
+# Install OpenSSL & other gems
+
+./gem-install.sh jruby-openssl
+...
+
+# Make soap4r work with (j)ruby 1.9
+
+curl -kL "https://github.com/spox/soap4r-spox/tarball/1.5.8.4" -o soap4r-spox-1.5.8.4.tar.gz
+tar -xzf soap4r-spox-1.5.8.4.tar.gz
+cp -r spox-soap4r-spox-345a6cb/bin/* lib/jruby/1.9/gems/soap4r-1.5.8/bin/
+cp -r spox-soap4r-spox-345a6cb/lib/* lib/jruby/1.9/gems/soap4r-1.5.8/lib/
+cp -r spox-soap4r-spox-345a6cb/test/* lib/jruby/1.9/gems/soap4r-1.5.8/test/
+
+# Install f5 iControl gem
+
+Download it via https://devcentral.f5.com/Forums/tabid/53/aff/2305/Default.aspx (need to be member of f5 developer
+community which is free).
+
+Then install gem via
+
+./gem-install.sh f5-icontrol-<version>.gem
+
