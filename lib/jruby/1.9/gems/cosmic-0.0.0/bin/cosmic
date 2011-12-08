@@ -1,0 +1,32 @@
+#!/usr/bin/env ruby
+require 'rubygems'
+require 'cosmic'
+require 'optparse'
+
+options = {}
+optparse = OptionParser.new do |opts|
+  opts.banner = "Usage: cosmic [options] <script> [<commandline arguments for the script>]"
+  opts.on('-h', '--help', 'Display this screen') do
+    puts opts
+    exit
+  end
+  opts.on('-d', '--dry-run', 'Runs the script(s) in dry-run mode') do
+    options[:dry_run_mode] = true
+  end
+  opts.on('-c', '--config-file PATH', 'Specifies the config file to use') do |path|
+    options[:config_file] = path
+  end
+end
+optparse.parse!
+
+if ARGV.empty?
+  puts optparse.help
+else
+  cosmic = Cosmic::Environment.from_config_file(options)
+  script_file = ARGV.shift
+  with cosmic do
+    # Unfortunately this won't give us proper line info in case of errors (see https://redmine.ruby-lang.org/issues/4352)
+    eval(IO.read(script_file), binding, script_file, __LINE__)
+  end
+end
+
