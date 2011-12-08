@@ -3,12 +3,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.ning</groupId>
-    <artifactId>cosmos2-standalone</artifactId>
+    <artifactId>cosmic-standalone</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>cosmos2-standalone</name>
-    <url>https://github.com/ning/cosmos2-standalone</url>
+    <name>cosmic-standalone</name>
+    <url>https://github.com/ning/cosmic-standalone</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

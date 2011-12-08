@@ -12,7 +12,7 @@
   </fileSets>
   <files>
     <file>
-      <source>${basedir}/lib/jruby/1.9/bin/cosmos2</source>
+      <source>${basedir}/lib/jruby/1.9/bin/cosmic</source>
       <outputDirectory>/</outputDirectory>
       <destName>jar-bootstrap.rb</destName>
     </file>
